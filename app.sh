@@ -5,11 +5,20 @@ export PATH=/usr/local/bin:$PATH
 
 case "$1" in
   "mvn_search")
-    ./mvn_search/index.py $2
+    # ./src/mvn_search/index.py $2
+    ./src/mvn_search.lua $2
   ;;
   "npm_search")
-    # ./npm_search/npm.lua $2
-    ./npm_search/index.py $2
+    ./src/npm_search.lua $2
+    # ./npm_search/index.py $2
+  ;;
+  "ssh")
+    ./src/ssh.lua "${@:2}"
+    # ./npm_search/index.py $2
+  ;;
+  "ssh_action")
+    ./src/ssh_action.lua $2
+    # ./npm_search/index.py $2
   ;;
   *) echo default
   ;;

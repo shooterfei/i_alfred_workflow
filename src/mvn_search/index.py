@@ -19,7 +19,7 @@ def data_handler(item):
     it = {
         'title': g + ":" + a + ":" + v,
         'subtitle': "update at %s \t count: %s" % (time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(item["timestamp"] / 1000)), item.get("versionCount", "0")),
-        'arg': mvn,
+        'arg': "test",
         'mods': {
             'cmd': {
                 'arg': mvn,

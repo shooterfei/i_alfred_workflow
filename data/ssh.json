@@ -1,0 +1,39 @@
+{
+  "default": {
+    "label": "group",
+    "items": [
+      {
+        "host": "127.0.0.1",
+        "port": 22,
+        "description": "本机",
+        "username": "wf",
+        "password": "wf-123456",
+        "root": "~",
+        "timeout": 10
+      }
+    ]
+  },
+  "zeusight": {
+    "label": "group",
+    "items": [
+      {
+        "host": "192.168.3.41",
+        "port": 22,
+        "description": "41 服务器",
+        "username": "dl",
+        "password": "zeusight",
+        "root": "~",
+        "timeout": 10
+      },
+      {
+        "host": "192.168.3.42",
+        "port": 22,
+        "description": "42 服务器",
+        "username": "dl",
+        "password": "zeusight",
+        "root": "~",
+        "timeout": 10
+      }
+    ]
+  }
+}
