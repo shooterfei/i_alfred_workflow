@@ -38,7 +38,20 @@ local json_file_load = function(filePath)
   return {}
 end
 
+
+local write_json_file = function(filePath, json_data)
+  local file = io.open(filePath, "w+")
+  if file ~= nil then
+    file:write(json_data)
+    file:close()
+    return true
+  end
+  print("err")
+  return false
+end
+
 M.fetch = fetch
 M.output = output
 M.json_file_load = json_file_load
+M.write_json_file = write_json_file
 return M

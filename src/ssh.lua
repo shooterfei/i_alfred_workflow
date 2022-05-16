@@ -16,18 +16,16 @@ local cjson = require("cjson")
 -- 	end
 -- end
 
-local data = os.getenv("data")
--- local json_data = alfy.json_file_load("./data/ssh.json")
+local mode = os.getenv("mode")
 
-if data == nil then
-  json_data = alfy.json_file_load("./data/ssh.json")
-else
-  -- print("data===>" .. data)
-  json_data = cjson.decode(data)
+local json_file = "./data/ssh.json"
+if mode == "temp" then
+  json_file = "./data/temp.json"
 end
 
-local items = {}
+local json_data = alfy.json_file_load(json_file)
 
+local items = {}
 for k, v in pairs(json_data) do
 	local temp = {}
 	if k ~= "default" then

@@ -1,9 +1,10 @@
 #!/usr/bin/env lua
 
 -- local cjson = require("cjson")
+local alfy = require "core.alfy"
 
-os.execute("./script/ssh.js " .. table.concat(arg))
--- local alfy = require "core.alfy"
+alfy.write_json_file("./data/temp.json", table.concat(arg))
+os.execute("node ./dist/index.js temp")
 
 -- -- print(os.getenv("data"))
 -- -- print("212324244")
