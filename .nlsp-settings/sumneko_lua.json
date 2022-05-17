@@ -1,0 +1,19 @@
+{
+  "Lua.runtime.version": "Lua 5.4",
+  "Lua.runtime.path": [
+    "?.lua",
+    "?/init.lua",
+    "?/?.lua",
+    "/usr/local/share/lua/5.4/?.lua",
+    "/usr/local/share/lua/5.4/?/init.lua",
+    "/usr/local/lib/lua/5.4/?.lua",
+    "/usr/local/lib/lua/5.4/?/init.lua"
+  ],
+  "Lua.workspace.library": [
+    "usr/local/lib/lua/5.4/?.so",
+    "/usr/local/lib/lua/5.4/loadall.so",
+    "./?.lua",
+    "./?/?.lua"
+  ],
+  "Lua.completion.workspaceWord": true
+}

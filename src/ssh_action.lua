@@ -1,10 +1,22 @@
 #!/usr/bin/env lua
 
--- local cjson = require("cjson")
-local alfy = require "core.alfy"
+local alfy = require("core.alfy")
+local cjson = require("cjson")
 
-alfy.write_json_file("./data/temp.json", table.concat(arg))
-os.execute("node ./dist/index.js temp")
+
+
+local args = table.concat(arg)
+alfy.write_json_file("./data/temp.json", args)
+
+local ssh_config = cjson.decode(args)
+
+print(ssh_config["label"])
+
+if ssh_config["label"] == "group" then
+  os.execute("node ./dist/index.js temp")
+else
+  os.execute("node ./dist/index.js run")
+end
 
 -- -- print(os.getenv("data"))
 -- -- print("212324244")

@@ -1,1 +1,1 @@
-{"label":"group","group":"zeusight","items":[{"root":"~","timeout":10,"username":"dl","host":"192.168.3.41","password":"zeusight","description":"41服务器","port":22},{"root":"~","timeout":10,"username":"dl","host":"192.168.3.42","password":"zeusight","description":"42服务器","port":22}]}
+{"description":"本机","timeout":10,"root":"~","host":"127.0.0.1","port":22,"password":"wf-123456","username":"wf"}
