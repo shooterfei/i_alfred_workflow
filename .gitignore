@@ -2,3 +2,4 @@
 .idea
 __pypackages__
 node_modules
+dist/

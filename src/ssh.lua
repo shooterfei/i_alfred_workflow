@@ -68,7 +68,6 @@ if mode ~= "temp" then
 		end
 	end
 else
-	-- print(cjson))
 	if json_data["label"] == "group" then
 		for k, v in ipairs(json_data["items"]) do
 			temp = {

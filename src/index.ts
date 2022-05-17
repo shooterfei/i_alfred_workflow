@@ -4,13 +4,13 @@ import { run } from "@jxa/run"
 
 let argv = process.argv
 run((arg) => {
+
   switch (arg[2]) {
     case 'temp':
-
       Application("com.runningwithcrayons.Alfred")
         .runTrigger("ssh", {
           inWorkflow: "shooterfei",
-          withArgument: `'${arg[2]}'`
+          withArgument: `${arg[2]}`
         })
       break;
     case 'run':
@@ -25,8 +25,9 @@ run((arg) => {
       } else {
         tab = window.tabs[1]
       }
+      // console.log(tab.getText())
 
-      console.log(JSON.stringify(tab.currentSession))
+      // console.log(JSON.stringify(tab.currentSession))
       // console.log(tab.currentSession().select(2))
       // tab.currentSession().launchAPIScriptNamed({arguments: "/usr/local/bin/lsd"})
       // tab.currentSession().write({text: "/usr/local/bin/lsd"})
