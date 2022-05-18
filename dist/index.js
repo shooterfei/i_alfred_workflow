@@ -7,12 +7,13 @@ run((arg) => {
             Application("com.runningwithcrayons.Alfred")
                 .runTrigger("ssh", {
                 inWorkflow: "shooterfei",
-                withArgument: `'${arg[2]}'`
+                withArgument: `${arg[2]}`
             });
             break;
         case 'run':
             const iTerm = Application('iTerm');
-            // iTerm.activate()
+            iTerm.launch();
+            iTerm.activate();
             iTerm.includeStandardAdditions = true;
             const window = iTerm.currentWindow();
             console.log(window.tabs.length);
@@ -23,10 +24,6 @@ run((arg) => {
             else {
                 tab = window.tabs[1];
             }
-            console.log(JSON.stringify(tab.currentSession));
-            // console.log(tab.currentSession().select(2))
-            // tab.currentSession().launchAPIScriptNamed({arguments: "/usr/local/bin/lsd"})
-            // tab.currentSession().write({text: "/usr/local/bin/lsd"})
             break;
         default:
             break;

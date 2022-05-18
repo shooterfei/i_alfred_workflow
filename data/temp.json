@@ -1,1 +1,1 @@
-{"root":"~","host":"192.168.3.42","timeout":10,"port":22,"description":"42服务器","password":"zeusight","username":"dl"}
+{"password":"wf-123456","username":"wf","root":"~","timeout":10,"port":22,"host":"127.0.0.1","description":"本机"}
