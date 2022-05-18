@@ -8,6 +8,32 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
+		<key>286C699F-B81A-4E7B-8460-B69C347497D0</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>ECE12B1A-86CC-4F8F-B07A-1ACE4327A885</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>2D1BEAD2-FF3C-4B39-A314-8B9D2B1F422D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>ECE12B1A-86CC-4F8F-B07A-1ACE4327A885</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>41AA61C5-803D-4D34-B53F-5308A485E6A3</key>
 		<array>
 			<dict>
@@ -52,6 +78,75 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>F3256DD5-929B-466A-9E70-6EA38BE3A674</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>icons/73D0AA90-61CD-4C09-8091-8C17E5E2C90B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>286C699F-B81A-4E7B-8460-B69C347497D0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>2D1BEAD2-FF3C-4B39-A314-8B9D2B1F422D</string>
+				<key>modifiers</key>
+				<integer>262144</integer>
+				<key>modifiersubtext</key>
+				<string>Paste character reference</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>C521AB4E-546F-472C-AD29-3EE662A2679C</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Paste character code</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>7C09E17C-EA32-4D72-972C-67205173716C</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Open in browser</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7C09E17C-EA32-4D72-972C-67205173716C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1097728C-4DCB-4E69-99DC-6A2D722CCB98</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C521AB4E-546F-472C-AD29-3EE662A2679C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>ECE12B1A-86CC-4F8F-B07A-1ACE4327A885</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -934,36 +1029,6 @@ fi</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string>on run argv
-    set bundleID to (system attribute "alfred_workflow_bundleid")
-    set token to (item 1 of argv)
-
-    tell application id "com.runningwithcrayons.Alfred"
-        set configuration "GITHUB_ACCESS_TOKEN" to value token in workflow bundleID
-    end tell
-end run</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>6</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>5FDF3556-1AF9-45C7-BA36-F378964A7959</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
@@ -1002,6 +1067,36 @@ end run</string>
 			<string>0B9DC17B-9FE8-4E6F-B5BB-8C2D51031243</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>on run argv
+    set bundleID to (system attribute "alfred_workflow_bundleid")
+    set token to (item 1 of argv)
+
+    tell application id "com.runningwithcrayons.Alfred"
+        set configuration "GITHUB_ACCESS_TOKEN" to value token in workflow bundleID
+    end tell
+end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>5FDF3556-1AF9-45C7-BA36-F378964A7959</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1128,6 +1223,29 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>./src/font_search/font-awesome-workflow --put-name {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>286C699F-B81A-4E7B-8460-B69C347497D0</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
@@ -1145,6 +1263,74 @@ end run</string>
 			<string>icons/80CE40BB-6CF6-44AC-80EA-194C4CC84E7C</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>62</integer>
+				<key>keyword</key>
+				<string>fa</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>...</string>
+				<key>script</key>
+				<string>./src/font_search/font-awesome-workflow --find {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Font Awesome Workflow</string>
+				<key>title</key>
+				<string>Search through Font Awesome Icons</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>icons/73D0AA90-61CD-4C09-8091-8C17E5E2C90B</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>ECE12B1A-86CC-4F8F-B07A-1ACE4327A885</string>
+			<key>version</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1176,6 +1362,94 @@ end run</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>./src/font_search/font-awesome-workflow --put-ref {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>2D1BEAD2-FF3C-4B39-A314-8B9D2B1F422D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>./src/font_search/font-awesome-workflow --put-code {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>C521AB4E-546F-472C-AD29-3EE662A2679C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string></string>
+				<key>utf8</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>1097728C-4DCB-4E69-99DC-6A2D722CCB98</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>./src/font_search/font-awesome-workflow --put-url {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7C09E17C-EA32-4D72-972C-67205173716C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -1195,12 +1469,33 @@ end run</string>
 			<key>ypos</key>
 			<integer>575</integer>
 		</dict>
+		<key>1097728C-4DCB-4E69-99DC-6A2D722CCB98</key>
+		<dict>
+			<key>xpos</key>
+			<integer>595</integer>
+			<key>ypos</key>
+			<integer>1100</integer>
+		</dict>
 		<key>117A8E79-87EF-4981-8B88-63ADCA9CC89B</key>
 		<dict>
 			<key>xpos</key>
 			<integer>1195</integer>
 			<key>ypos</key>
 			<integer>55</integer>
+		</dict>
+		<key>286C699F-B81A-4E7B-8460-B69C347497D0</key>
+		<dict>
+			<key>xpos</key>
+			<integer>395</integer>
+			<key>ypos</key>
+			<integer>770</integer>
+		</dict>
+		<key>2D1BEAD2-FF3C-4B39-A314-8B9D2B1F422D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>395</integer>
+			<key>ypos</key>
+			<integer>880</integer>
 		</dict>
 		<key>30EE4B43-4152-451B-899C-7C79274D26A6</key>
 		<dict>
@@ -1272,6 +1567,20 @@ end run</string>
 			<key>ypos</key>
 			<integer>535</integer>
 		</dict>
+		<key>icons/73D0AA90-61CD-4C09-8091-8C17E5E2C90B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>60</integer>
+			<key>ypos</key>
+			<integer>875</integer>
+		</dict>
+		<key>7C09E17C-EA32-4D72-972C-67205173716C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>395</integer>
+			<key>ypos</key>
+			<integer>1100</integer>
+		</dict>
 		<key>9D84E335-2FD7-48F6-9B7C-5A6BF35DB936</key>
 		<dict>
 			<key>xpos</key>
@@ -1285,6 +1594,13 @@ end run</string>
 			<integer>1385</integer>
 			<key>ypos</key>
 			<integer>345</integer>
+		</dict>
+		<key>C521AB4E-546F-472C-AD29-3EE662A2679C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>395</integer>
+			<key>ypos</key>
+			<integer>990</integer>
 		</dict>
 		<key>DA1BADB9-E16C-4D7D-9A35-53FB85581396</key>
 		<dict>
@@ -1313,6 +1629,13 @@ end run</string>
 			<integer>2060</integer>
 			<key>ypos</key>
 			<integer>435</integer>
+		</dict>
+		<key>ECE12B1A-86CC-4F8F-B07A-1ACE4327A885</key>
+		<dict>
+			<key>xpos</key>
+			<integer>595</integer>
+			<key>ypos</key>
+			<integer>880</integer>
 		</dict>
 		<key>F3256DD5-929B-466A-9E70-6EA38BE3A674</key>
 		<dict>
