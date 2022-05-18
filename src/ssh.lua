@@ -3,19 +3,6 @@
 local alfy = require("core.alfy")
 local cjson = require("cjson")
 
--- print(os.getenv("data"))
-
--- local data = nil
--- if arg[1] == nil then
---   arg[1] = ""
--- end
--- for key, value in ipairs(arg) do
---   -- print(key, value)
--- 	if value == "-d" then
--- 		data = arg[key + 1]
--- 	end
--- end
-
 local mode = os.getenv("mode")
 
 local json_file = "./data/ssh.json"
@@ -26,6 +13,7 @@ end
 local json_data = alfy.json_file_load(json_file)
 
 local items = {}
+-- luacheck: ignore 311
 local temp = {}
 if mode ~= "temp" then
 	for k, v in pairs(json_data) do
@@ -69,7 +57,7 @@ if mode ~= "temp" then
 	end
 else
 	if json_data["label"] == "group" then
-		for k, v in ipairs(json_data["items"]) do
+		for _, v in ipairs(json_data["items"]) do
 			temp = {
 				title = json_data["group"] .. "/" .. v["host"],
 				subtitle = v["description"],
