@@ -777,29 +777,6 @@ fi</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>./app.sh ssh_action "{query}"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>6A0BDF61-EA8C-4C6D-8023-3048B1A2DDCA</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -845,6 +822,29 @@ fi</string>
 			<string>icons/1888DB19-7932-4203-8056-F9E0A5B69175</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./app.sh ssh_action "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>6A0BDF61-EA8C-4C6D-8023-3048B1A2DDCA</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -934,6 +934,36 @@ fi</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>on run argv
+    set bundleID to (system attribute "alfred_workflow_bundleid")
+    set token to (item 1 of argv)
+
+    tell application id "com.runningwithcrayons.Alfred"
+        set configuration "GITHUB_ACCESS_TOKEN" to value token in workflow bundleID
+    end tell
+end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>5FDF3556-1AF9-45C7-BA36-F378964A7959</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
@@ -972,36 +1002,6 @@ fi</string>
 			<string>0B9DC17B-9FE8-4E6F-B5BB-8C2D51031243</string>
 			<key>version</key>
 			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string>on run argv
-    set bundleID to (system attribute "alfred_workflow_bundleid")
-    set token to (item 1 of argv)
-
-    tell application id "com.runningwithcrayons.Alfred"
-        set configuration "GITHUB_ACCESS_TOKEN" to value token in workflow bundleID
-    end tell
-end run</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>6</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>5FDF3556-1AF9-45C7-BA36-F378964A7959</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1415,7 +1415,7 @@ end run</string>
 		<key>CACHE_TTL_SEC_REPO</key>
 		<string>86400</string>
 		<key>GITHUB_ACCESS_TOKEN</key>
-		<string>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</string>
+		<string>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</string>
 		<key>GITHUB_API_HOST</key>
 		<string>api.github.com</string>
 		<key>GITHUB_HOST</key>
@@ -1435,13 +1435,17 @@ end run</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
-		<string>GITLAB_PORT</string>
-		<string>GITHUB_ACCESS_TOKEN</string>
 		<string>GITLAB_ACCESS_TOKEN</string>
+		<string>GITHUB_HOST</string>
+		<string>GITLAB_PORT</string>
+		<string>GITLAB_API_USE_SSL</string>
+		<string>GITHUB_ACCESS_TOKEN</string>
 		<string>GITLAB_HOST</string>
 		<string>PROTOCOL</string>
-		<string>GITLAB_API_USE_SSL</string>
+		<string>GITHUB_API_HOST</string>
 	</array>
+	<key>version</key>
+	<string></string>
 	<key>webaddress</key>
 	<string>https://github.com/shooterfei/i_alfred_workflow</string>
 </dict>
