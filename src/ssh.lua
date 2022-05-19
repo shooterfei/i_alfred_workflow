@@ -1,5 +1,3 @@
-#!/usr/bin/env lua
-
 local alfy = require("core.alfy")
 local cjson = require("cjson")
 

@@ -1,0 +1,3 @@
+/Users/shooterfei/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.8BD6306D-F6BB-40CB-B206-9761B60FEAF7/build/CMakeFiles/lua.dir
+/Users/shooterfei/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.8BD6306D-F6BB-40CB-B206-9761B60FEAF7/build/CMakeFiles/edit_cache.dir
+/Users/shooterfei/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.8BD6306D-F6BB-40CB-B206-9761B60FEAF7/build/CMakeFiles/rebuild_cache.dir

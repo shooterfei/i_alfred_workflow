@@ -5,6 +5,8 @@ import { run } from "@jxa/run"
 let argv = process.argv
 run((arg) => {
 
+  // const cwd = arg[1]
+
   switch (arg[2]) {
     case 'temp':
       Application("com.runningwithcrayons.Alfred")
@@ -26,6 +28,7 @@ run((arg) => {
       } else {
         tab = window.tabs[1]
       }
+      // console.log(tab)
       break;
     default:
       break;

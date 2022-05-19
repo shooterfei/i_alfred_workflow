@@ -8,7 +8,7 @@ local res = alfy.fetch(url, {})
 
 local data = {}
 
-for k, value in ipairs(res["response"]["docs"]) do
+for _, value in ipairs(res["response"]["docs"]) do
 	local g, a, v = value["g"], value["a"], value["v"] == nil and value["latestVersion"] or value["v"]
 	local mvn = string.format(
 		"<dependency>\n  <groupid>%s</groupid>\n  <artifactid>%s</artifactid>\n  <version>%s</version>\n</dependency>",
@@ -16,14 +16,15 @@ for k, value in ipairs(res["response"]["docs"]) do
 		a,
 		v
 	)
-  local web_url = "https://search.maven.org/search?q=g:" .. g
+	local web_url = "https://search.maven.org/search?q=g:" .. g
 	local gradle = string.format("implementation('%s:%s:%s')", g, a, v)
 	local temp = {
 		["title"] = g .. ":" .. a .. ":" .. v,
 		["arg"] = web_url,
-		["subtitle"] = string.format("update at %s \t count: %s",
-		  os.date("%Y-%m-%d %H:%M:%S", value["timestamp"] // 1000),
-		  value["versionCount"]
+		["subtitle"] = string.format(
+			"update at %s \t count: %s",
+			os.date("%Y-%m-%d %H:%M:%S", math.floor(value["timestamp"] / 1000)),
+			value["versionCount"]
 		),
 		["mods"] = {
 			["alt"] = {

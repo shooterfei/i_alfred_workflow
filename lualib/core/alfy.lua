@@ -31,7 +31,7 @@ end
 local json_file_load = function(filePath)
 	local file = io.open(filePath, "r")
   if file ~= nil then
-    local json = file:read("a")
+    local json = file:read("*a")
     file:close()
     return cjson.decode(json)
   end
