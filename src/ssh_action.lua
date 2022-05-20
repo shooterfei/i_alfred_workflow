@@ -15,7 +15,24 @@ print(ssh_config["label"])
 if ssh_config["label"] == "group" then
   os.execute("node ./dist/index.js temp")
 else
-  os.execute("node ./dist/index.js run")
+  local shell_script = [[
+  export host=%s
+  export port=%s
+  export username=%s
+  export password=%s
+  export rootdir=%s
+  export timeout=%s
+  node ./dist/index.js run
+]]
+
+  os.execute(string.format(shell_script,
+    ssh_config["host"],
+    ssh_config["port"],
+    ssh_config["username"],
+    ssh_config["password"],
+    ssh_config["rootdir"],
+    ssh_config["timeout"]
+  ))
 end
 
 -- -- print(os.getenv("data"))

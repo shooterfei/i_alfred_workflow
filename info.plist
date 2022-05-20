@@ -1313,7 +1313,7 @@ end run</string>
 				<key>argumenttrimmode</key>
 				<integer>1</integer>
 				<key>argumenttype</key>
-				<integer>2</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>keyword</key>
@@ -1341,7 +1341,7 @@ end run</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
@@ -1686,7 +1686,7 @@ end run</string>
 		<key>6A0BDF61-EA8C-4C6D-8023-3048B1A2DDCA</key>
 		<dict>
 			<key>xpos</key>
-			<integer>520</integer>
+			<integer>540</integer>
 			<key>ypos</key>
 			<integer>845</integer>
 		</dict>
@@ -1763,9 +1763,9 @@ end run</string>
 		<key>F3256DD5-929B-466A-9E70-6EA38BE3A674</key>
 		<dict>
 			<key>xpos</key>
-			<integer>685</integer>
+			<integer>720</integer>
 			<key>ypos</key>
-			<integer>920</integer>
+			<integer>945</integer>
 		</dict>
 		<key>F3A3D133-43DE-4E7A-B676-D9931F827546</key>
 		<dict>
