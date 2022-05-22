@@ -12,8 +12,9 @@ case "$1" in
     luajit ./src/mvn_search.lua $2
   ;;
   "npm_search")
-    luajit ./src/npm_search.lua $2
+    # luajit ./src/npm_search.lua $2
     # ./src/npm_search/index.py $2
+    ./go/bin/i-alfred-workflow -f npm_search $2
   ;;
   "ssh")
     luajit ./src/ssh.lua "${@:2}"

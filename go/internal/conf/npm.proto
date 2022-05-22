@@ -1,0 +1,125 @@
+syntax = "proto3";
+
+package conf;
+
+option go_package = "./conf";
+
+message Npm {
+
+  message FORMDATA {
+    message SEARCH {
+      message Q {
+        string value = 1;
+      }
+      Q q = 1;
+    }
+    SEARCH search = 1;
+  }
+
+  FORMDATA form_data = 1;
+
+  message OBJECTS {
+
+    message PACKAGE {
+      string name = 1;
+      string scope = 2;
+      string version = 3;
+      string description = 4;
+      repeated string keywords = 5;
+
+      message DATE {
+        int64 ts = 1;
+        string rel = 2;
+      }
+
+      DATE date = 6;
+
+      message LINKS {
+        string npm = 1;
+        string homepage = 2;
+        string repository = 3;
+        string bugs = 4;
+      }
+
+      LINKS links = 7;
+
+      message AUTHOR {
+        string name = 1;
+      }
+
+      AUTHOR author = 8;
+
+      message PUBLISHER {
+        string name = 1;
+
+        message AVATARS {
+          string small = 1;
+          string medium = 2;
+          string large = 3;
+        }
+
+        AVATARS avatars = 2;
+
+        message CREATED {
+
+          message TS {
+          }
+
+          TS ts = 1;
+          string rel = 2;
+        }
+
+        CREATED created = 3;
+        string email = 4;
+      }
+
+      PUBLISHER publisher = 9;
+
+      message MAINTAINERS {
+        string username = 1;
+        string email = 2;
+      }
+
+      repeated MAINTAINERS maintainers = 10;
+      bool keywordsTruncated = 11;
+    }
+
+    PACKAGE package = 1;
+
+    message SCORE {
+      double final = 1;
+
+      message DETAIL {
+        double quality = 1;
+        double popularity = 2;
+        double maintenance = 3;
+      }
+
+      DETAIL detail = 2;
+    }
+
+    SCORE score = 2;
+    double searchScore = 3;
+  }
+
+  repeated OBJECTS objects = 2;
+  double total = 3;
+  string time = 4;
+
+  message PAGINATION {
+    double perPage = 1;
+    double page = 2;
+  }
+
+  PAGINATION pagination = 5;
+  string url = 6;
+
+  message USER {
+  }
+
+  USER user = 7;
+  string csrftoken = 8;
+  repeated string notifications = 9;
+  repeated string npmExpansions = 10;
+}
+
