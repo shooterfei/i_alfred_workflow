@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"i-alfred-workflow/internal/service/search"
 	"os"
 )
 
@@ -16,7 +17,10 @@ func main() {
 	}
 	switch *f {
 	case "npm_search":
-		fmt.Println(npmSearch(param))
+		fmt.Println(search.NpmSearch(param))
+		break
+	case "mvn_search":
+		fmt.Println(search.MvnSearch(param))
 		break
 	default:
 		fmt.Println("error")

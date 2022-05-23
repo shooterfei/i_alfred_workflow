@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/any.proto";
 package conf.v2;
 
 option go_package = "./conf";
@@ -16,10 +15,15 @@ message Alfy {
     Icon icon = 7;
     bool valid = 8;
     string match = 9;
-    google.protobuf.Any mod = 10;
+    map<string, Mod> mods = 10;
     string quicklookurl = 11;
-    google.protobuf.Any text = 12;
+    map<string, string> text = 12;
 
+    message Mod {
+        string arg = 1;
+        string subtitle = 2;
+        string title = 3;
+    }
 
     message Icon {
       string type = 1;

@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package conf;
+
+option go_package = "./conf";
+
+
+message Mvn {
+  Response response = 1;
+  ResponseHeader responseHeader = 2;
+  Spellcheck spellcheck = 3;
+
+  message Response {
+    repeated Doc docs = 1;
+    int32 numFound = 2;
+    int32 start = 3;
+    message Doc {
+      string a = 1;
+      repeated string ec = 2;
+      string g = 3;
+      string id = 4;
+      string latestVersion = 5;
+      string p = 6;
+      string repositoryId = 7;
+      repeated string text = 8;
+      int64 timestamp = 9;
+      int32 versionCount = 10;
+    }
+
+  }
+  
+  message ResponseHeader {
+      int32 qTime = 1;
+      Params params = 2;
+      int32 status =3;
+      message Params {
+          string core = 1;
+          string defType = 2;
+          string fl = 3;
+          string indent = 4;
+          string q = 5;
+          string qf = 6;
+          string rows = 7;
+          string sort = 8;
+          string start = 11;
+          string version = 12;
+          string wt = 13;
+      }
+  }
+
+  message Spellcheck {
+      repeated string suggestions = 1;
+  }
+
+}

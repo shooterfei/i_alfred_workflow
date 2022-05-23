@@ -1047,7 +1047,7 @@ end run</string>
 				<key>runningsubtext</key>
 				<string>Fetching results...</string>
 				<key>script</key>
-				<string>cd src/git-repo; apps/cli search $@</string>
+				<string>cd third_party/git-repo; apps/cli search $@</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -1214,7 +1214,7 @@ end run</string>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>./index.py "$1"</string>
+				<string>./python/index.py "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -1444,7 +1444,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
-				<string>./src/font_search/font-awesome-workflow --put-name {query}</string>
+				<string>./third_party/font_search/font-awesome-workflow --put-name {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1506,7 +1506,7 @@ end run</string>
 				<key>runningsubtext</key>
 				<string>...</string>
 				<key>script</key>
-				<string>./src/font_search/font-awesome-workflow --find {query}</string>
+				<string>./third_party/font_search/font-awesome-workflow --find {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1535,7 +1535,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
-				<string>./src/font_search/font-awesome-workflow --put-ref {query}</string>
+				<string>./third_party/font_search/font-awesome-workflow --put-ref {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1558,7 +1558,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
-				<string>./src/font_search/font-awesome-workflow --put-code {query}</string>
+				<string>./third_party/font_search/font-awesome-workflow --put-code {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -1600,7 +1600,7 @@ end run</string>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
-				<string>./src/font_search/font-awesome-workflow --put-url {query}</string>
+				<string>./third_party/font_search/font-awesome-workflow --put-url {query}</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>

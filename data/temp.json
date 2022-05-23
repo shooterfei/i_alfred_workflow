@@ -1,1 +1,1 @@
-{"host":"192.168.3.42","description":"42服务器","root":"~","password":"zeusight","username":"dl","timeout":10,"port":22}
+{"items":[{"host":"192.168.3.41","port":22,"root":"~","password":"zeusight","username":"dl","timeout":10,"description":"41 服务器"},{"host":"192.168.3.42","port":22,"root":"~","password":"zeusight","username":"dl","timeout":10,"description":"42 服务器"}],"label":"group","group":"zeusight"}
