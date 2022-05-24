@@ -1968,7 +1968,7 @@ end run</string>
 		<string>GITHUB_API_HOST</string>
 	</array>
 	<key>version</key>
-	<string></string>
+	<string>1.0.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/shooterfei/i_alfred_workflow</string>
 </dict>

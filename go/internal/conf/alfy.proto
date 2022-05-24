@@ -20,9 +20,9 @@ message Alfy {
     map<string, string> text = 12;
 
     message Mod {
-        string arg = 1;
-        string subtitle = 2;
-        string title = 3;
+      string arg = 1;
+      string subtitle = 2;
+      string title = 3;
     }
 
     message Icon {
