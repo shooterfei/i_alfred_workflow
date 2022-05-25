@@ -10,10 +10,11 @@ INTERNAL_PROTO_FILES=$(shell find . -name *.proto)
 init:
 	go get -u google.golang.org/protobuf/cmd/protoc-gen-go
 	go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
-	# go install  github.com/go-kratos/kratos/cmd/kratos/v2
-	# go install  github.com/go-kratos/kratos/cmd/protoc-gen-go-http/v2
-	# go install  github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2
-	# go install  github.com/google/wire/cmd/wire
+
+# go install  github.com/go-kratos/kratos/cmd/kratos/v2
+# go install  github.com/go-kratos/kratos/cmd/protoc-gen-go-http/v2
+# go install  github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2
+# go install  github.com/google/wire/cmd/wire
 
 # .PHONY: grpc
 # # generate grpc code
