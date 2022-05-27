@@ -7,48 +7,52 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"time"
+	"regexp"
+	"strings"
 )
 
 func MvnSearch(q string) string {
-	url := fmt.Sprintf("https://search.maven.org/solrsearch/select?q=%v&start=%d&rows=%d", q, 0, 20)
+	url := fmt.Sprintf("https://mvn.coderead.cn/search?keyword=%s", q)
+	req, _ := http.NewRequest("GET", url, nil)
 
-	resp, err := http.Get(url)
+	resp, err := (&http.Client{}).Do(req)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("http error")
 	}
 	defer resp.Body.Close()
+
 	body, readErr := ioutil.ReadAll(resp.Body)
 	if readErr != nil {
 		log.Fatal(readErr)
 	}
-
-	var mvn conf.Mvn
-	json.Unmarshal(body, &mvn)
+  var mvn conf.Mvn
+	jsonErr := json.Unmarshal(body, &mvn)
+	if jsonErr != nil {
+		log.Fatal(jsonErr)
+	}
 
 	var alfy conf.Alfy
-	for _, v := range mvn.Response.Docs {
-		web_url := fmt.Sprintf("https://search.maven.org/search?q=g:%v", v.G)
+
+  regExp := regexp.MustCompile(`'text' >(.*?)<\/span>.*description'>(.*?)<\/span>.*description'>(.*?)<\/span>`)
+  regExp2 := regexp.MustCompile(`<.?em>`)
+	for index, v := range mvn.Results {
+    result := regExp.FindAllStringSubmatch(v.Name, -1)
+
+    title := strings.TrimSpace(regExp2.ReplaceAllString(result[0][1], ""))
+    time := strings.TrimSpace(regExp2.ReplaceAllString(result[0][2], ""))
+    description := strings.TrimSpace(regExp2.ReplaceAllString(result[0][3], ""))
+
 		temp := conf.Alfy_Items{
-			Title: fmt.Sprintf("%v:%v:%v", v.G, v.A, v.LatestVersion),
-			Subtitle: fmt.Sprintf("update by %v \t count: %v",
-				time.Unix(v.Timestamp/1000, 0).Format("2006-01-02 15:04:05"),
-				v.VersionCount),
-			Arg: web_url,
-			Mods: map[string]*conf.Alfy_Items_Mod{
-				"cmd": {
-					Arg:      "test",
-					Subtitle: "123",
-          Title: "test",
-				},
-			},
+      Uid: fmt.Sprint(index),
+      Title: description + ":"+ title,
+      Subtitle: fmt.Sprintf("update by %s", time),
+			Arg: "test",
 		}
 		alfy.Items = append(alfy.Items, &temp)
 	}
-
 	b, err := json.Marshal(alfy)
 	if err != nil {
 		log.Fatal(err)
 	}
-	return string(b)
+  return string(b)
 }

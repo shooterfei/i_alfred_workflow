@@ -25,7 +25,7 @@ func NpmSearch(q string) string {
 	if readErr != nil {
 		log.Fatal(readErr)
 	}
-	var npm conf.Npm
+	var npm conf.NpmOld
 	jsonErr := json.Unmarshal(body, &npm)
 	if jsonErr != nil {
 		log.Fatal(jsonErr)

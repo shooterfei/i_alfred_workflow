@@ -10,6 +10,7 @@ INTERNAL_PROTO_FILES=$(shell find . -name *.proto)
 init:
 	go get -u google.golang.org/protobuf/cmd/protoc-gen-go
 	go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
+	go get -u github.com/PuerkitoBio/goquery
 
 # go install  github.com/go-kratos/kratos/cmd/kratos/v2
 # go install  github.com/go-kratos/kratos/cmd/protoc-gen-go-http/v2
@@ -64,7 +65,9 @@ init:
 .PHONY: build
 # build
 build:
-	mkdir -p bin/ && go build -ldflags "-X main.Version=$(VERSION)" -o ./bin/ ./...
+	rm -rf bin && mkdir -p bin/ && go build  -o ./bin/ ./...
+
+# mkdir -p bin/ && go build -ldflags "-X main.Version=$(VERSION)" -o ./bin/ ./...
 
 
 proto:

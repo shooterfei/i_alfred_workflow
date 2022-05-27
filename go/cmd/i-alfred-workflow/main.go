@@ -8,6 +8,8 @@ import (
 )
 
 var f = flag.String("f", "", "string类型参数")
+var g = flag.String("g", "", "string类型参数")
+var a = flag.String("a", "", "string类型参数")
 
 func main() {
 	flag.Parse()
@@ -22,6 +24,8 @@ func main() {
 	case "mvn_search":
 		fmt.Println(search.MvnSearch(param))
 		break
+	case "versions":
+		fmt.Println(search.Versions(*g, *a))
 	default:
 		fmt.Println("error")
 		break
