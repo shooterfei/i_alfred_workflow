@@ -40,4 +40,5 @@ if __name__ == "__main__":
         os.system(f"unzip ../bin/tools.alfredworkflow -d '{target}'")
     else:
         print("install")
+        os.system("open ../bin/tools.alfredworkflow")
 
