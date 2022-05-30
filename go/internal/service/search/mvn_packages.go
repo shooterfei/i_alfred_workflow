@@ -1,8 +1,10 @@
 package search
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
+	"i-alfred-workflow/internal/conf"
 	"log"
 )
 
@@ -13,18 +15,38 @@ func Versions(groupId string, artifactId string) string {
 	}
 
 	vHtmls := doc.Find("tr[onclick=\"doFold($(this))\"]")
+	var alfy conf.Alfy
 
 	vHtmls.Each(func(i int, vHtml *goquery.Selection) {
 		version := vHtml.Find("td:nth-child(1)").Text()
 		downloadCount := vHtml.Find("td:nth-child(3)").Text()
 		time := vHtml.Find("td:nth-child(4)").Text()
-		fmt.Printf("version=%v\n", version)
-		fmt.Printf("downloadCount=%v\n", downloadCount)
-		fmt.Printf("time=%v\n", time)
+
+		temp := conf.Alfy_Items{
+			Title:    version,
+			Subtitle: fmt.Sprintf("update by %s \t downloadCount: %s", time, downloadCount),
+			Arg:      fmt.Sprint(i),
+			Mods: map[string]*conf.Alfy_Items_Mod{
+				"ctrl": {
+					Arg: fmt.Sprintf("<dependency>\n\t<groupid>%s</groupid>\n\t<artifactid>%s</artivactid>\n\t<version>%s</version>\n</dependency>",
+						groupId,
+						artifactId,
+						version),
+					Subtitle: "copy for Maven",
+				},
+				"cmd": {
+					Arg:      fmt.Sprintf("implementation '%s:%s:%s'", groupId, artifactId, version),
+					Subtitle: "copy for Grandle",
+				},
+				"alt": {
+					Arg:      fmt.Sprintf("implementation('%s:%s:%s')", groupId, artifactId, version),
+					Subtitle: "copy for Kotlin",
+				},
+			},
+		}
+		alfy.Items = append(alfy.Items, &temp)
 	})
 
-	// Each(func(i int, selection * goquery.Selection) {
-	//   fmt.Println(selection.Text())
-	// })
-	return ""
+	b, err := json.Marshal(alfy)
+	return string(b)
 }

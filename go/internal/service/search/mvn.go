@@ -46,7 +46,7 @@ func MvnSearch(q string) string {
       Uid: fmt.Sprint(index),
       Title: description + ":"+ title,
       Subtitle: fmt.Sprintf("update by %s", time),
-			Arg: "test",
+			Arg: description + ":"+ title,
 		}
 		alfy.Items = append(alfy.Items, &temp)
 	}

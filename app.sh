@@ -1,9 +1,14 @@
 #!/bin/bash
 
+
 case "$1" in
   "mvn_search")
     # ./src/mvn_search/index.py $2
     ./i-alfred-workflow -f mvn_search "$2"
+  ;;
+  "mvn_package_version")
+    read -r -a arr <<< "${2//:/ }"
+    ./i-alfred-workflow -f versions  -g "${arr[0]}" -a "${arr[1]}"
   ;;
   "npm_search")
     # ./src/npm_search/index.py $2
