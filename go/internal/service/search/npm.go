@@ -40,7 +40,21 @@ func NpmSearch(q string) string {
 				v.Score.Detail.Popularity,
 				v.Score.Detail.Quality,
 				v.Score.Detail.Maintenance),
-			Arg: "test",
+			Arg: v.Package.Links.Npm,
+      Mods: map[string]*conf.Alfy_Items_Mod{
+        "ctrl": {
+          Arg: fmt.Sprintf("npm install %s", v.Package.Name),
+          Subtitle: "copy for npm",
+        },
+        "cmd": {
+          Arg: fmt.Sprintf("yarn add %s", v.Package.Name),
+          Subtitle: "copy for yarn",
+        },
+        "alt": {
+          Arg: fmt.Sprintf("pnpm install %s", v.Package.Name),
+          Subtitle: "copy for pnpm",
+        },
+      },
 		}
 		alfy.Items = append(alfy.Items, &temp)
 	}

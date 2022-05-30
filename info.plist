@@ -677,7 +677,7 @@
 				<string>if [ -z "$GITHUB_ACCESS_TOKEN" ]; then
   echo '{"items":[{"title":"You need to log in first","subtitle":"Hit Enter to generate a new personal access token","arg":"unauthorized"}]}'
 else
-  cd src/git-repo; apps/cli user-repos $1
+  cd third_party/git-repo; apps/cli user-repos $1
 fi</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
@@ -857,7 +857,7 @@ fi</string>
 				<string>if [ -z "$GITHUB_ACCESS_TOKEN" ]; then
   echo '{"items":[{"title":"You need to log in first","subtitle":"Hit Enter to generate a new personal access token","arg":"unauthorized"}]}'
 else
-  cd src/git-repo; apps/cli user-pulls $1
+  cd third_party/git-repo; apps/cli user-pulls $1
 fi</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
@@ -1390,55 +1390,6 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>test</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>cd go;  ./main</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>9C6BCE76-6A3A-44B4-AA07-A13550C3CAFB</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -1753,13 +1704,6 @@ end run</string>
 			<key>ypos</key>
 			<integer>1360</integer>
 		</dict>
-		<key>9C6BCE76-6A3A-44B4-AA07-A13550C3CAFB</key>
-		<dict>
-			<key>xpos</key>
-			<integer>1135</integer>
-			<key>ypos</key>
-			<integer>1030</integer>
-		</dict>
 		<key>9D84E335-2FD7-48F6-9B7C-5A6BF35DB936</key>
 		<dict>
 			<key>xpos</key>
@@ -1938,7 +1882,7 @@ end run</string>
 		<key>CACHE_TTL_SEC_REPO</key>
 		<string>86400</string>
 		<key>GITHUB_ACCESS_TOKEN</key>
-		<string>shooterfei</string>
+		<string>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</string>
 		<key>GITHUB_API_HOST</key>
 		<string>api.github.com</string>
 		<key>GITHUB_HOST</key>
