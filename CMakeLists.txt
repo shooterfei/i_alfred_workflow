@@ -56,7 +56,7 @@ add_custom_target(
 # lua 方式实现
 add_custom_target(
   lua
-  DEPENDS base package
+  COMMAND mv bin/* ${PROJECT_BINARY_DIR}/bin/ WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/lua
 )
 
 # c 方式实现
