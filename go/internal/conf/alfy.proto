@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package conf.v2;
+package conf;
 
 option go_package = "./conf";
 

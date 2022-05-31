@@ -1,0 +1,117 @@
+syntax = "proto3";
+
+package conf;
+
+option go_package = "./conf";
+
+message GitLab {
+  int32 id = 1;
+  string description = 2;
+  string name = 3;
+  string name_with_namespace = 4;
+  string path = 5;
+  string path_with_namespace = 6;
+  string created_at = 7;
+  string default_branch = 8;
+  repeated string tag_list = 9;
+  string ssh_url_to_repo = 10;
+  string http_url_to_repo = 11;
+  string web_url = 12;
+  string readme_url = 13;
+  string avatar_url = 14;
+  int64 star_count = 15;
+  int64 forks_count = 16;
+  string last_activity_at = 17;
+  Namespace namespace = 18;
+  _Links _links = 19;
+  bool empty_repo = 20;
+  bool archived = 21;
+  string visibility = 22;
+  bool resolve_outdated_diff_discussions = 23;
+  bool container_registry_enabled = 24;
+  bool issues_enabled = 25;
+  bool merge_requests_enabled = 26;
+  bool wiki_enabled = 27;
+  bool jobs_enabled = 28;
+  bool snippets_enabled = 29;
+  bool can_create_merge_request_in = 30;
+  string issues_access_level = 31;
+  string repository_access_level = 32;
+  string merge_requests_access_level = 33;
+  string wiki_access_level = 34;
+  string builds_access_level = 35;
+  string snippets_access_level = 36;
+  string pages_access_level = 37;
+  bool emails_disabled = 38;
+  bool shared_runners_enabled = 39;
+  bool lfs_enabled = 40;
+  int32 creator_id = 41;
+  string import_status = 42;
+  int32 open_issues_count = 43;
+  int32 ci_default_git_depth = 44;
+  bool public_jobs = 45;
+  int32 build_timeout = 46;
+  string auto_cancel_pending_pipelines = 47;
+  string build_coverage_regex = 48;
+  string ci_config_path = 49;
+  repeated string shared_with_groups = 50;
+  bool only_allow_merge_if_pipeline_succeeds = 51;
+  bool request_access_enabled = 52;
+  bool only_allow_merge_if_all_discussions_are_resolved = 53;
+  bool remove_source_branch_after_merge = 54;
+  bool printing_merge_request_link_enabled = 55;
+  string merge_method = 56;
+  string suggestion_commit_message = 57;
+  bool auto_devops_enabled = 58;
+  string auto_devops_deploy_strategy = 59;
+  bool autoclose_referenced_issues = 60;
+
+  Owner owner = 61;
+  Container_expiration_policy container_expiration_policy = 62;
+  Permissions permissions = 63;
+
+  message Namespace {
+    int32 id = 1;
+    string name = 2;
+    string path = 3;
+    string kind = 4;
+    string full_path = 5;
+    int32 parent_id = 6;
+    string avatar_url = 7;
+    string web_url = 8;
+  }
+  message _Links {
+    string self = 1;
+    string issues = 2;
+    string merge_requests = 3;
+    string repo_branches = 4;
+    string labels = 5;
+    string events = 6;
+    string members = 7;
+  }
+  message Owner {
+    int32 id = 1;
+    string name = 2;
+    string username = 3;
+    string state = 4;
+    string avatar_url = 5;
+    string web_url = 6;
+  }
+  message Container_expiration_policy {
+    string cadence = 1;
+    bool enabled = 2;
+    string keep_n = 3;
+    string older_than = 4;
+    string name_regex = 5;
+    string next_run_at = 6;
+  }
+
+  message Permissions {
+    Project_access project_access = 1;
+    Project_access group_access = 2;
+    message Project_access {
+      int32 access_level = 1;
+      int32 notification_level = 2;
+    }
+  }
+}

@@ -14,6 +14,9 @@ case "$1" in
     # ./src/npm_search/index.py $2
     ./i-alfred-workflow -f npm_search "$2"
   ;;
+  "gitlab_search")
+    ./i-alfred-workflow -f gitlab_search "$2"
+  ;;
   "ssh")
     luajit ./src/ssh.lua "${@:2}"
   ;;

@@ -33,6 +33,7 @@ if __name__ == "__main__":
         print("moving")
         target = os.path.dirname(info_plist)
         shutil.rmtree(target)
+        os.mkdir(target)
         # 会丢失权限,改为命令解压
         # zFile = zipfile.ZipFile("../bin/tools.alfredworkflow", "r")
         # for fileM in zFile.namelist():

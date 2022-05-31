@@ -23,7 +23,7 @@ func MvnSearchOld(q string) string {
 		log.Fatal(readErr)
 	}
 
-  var mvn conf.MvnOld
+	var mvn conf.MvnOld
 	json.Unmarshal(body, &mvn)
 
 	var alfy conf.Alfy
@@ -35,12 +35,12 @@ func MvnSearchOld(q string) string {
 				time.Unix(v.Timestamp/1000, 0).Format("2006-01-02 15:04:05"),
 				v.VersionCount),
 			Arg: web_url,
-      
+
 			Mods: map[string]*conf.Alfy_Items_Mod{
 				"cmd": {
 					Arg:      "test",
 					Subtitle: "123",
-          Title: "test",
+					Title:    "test",
 				},
 			},
 		}

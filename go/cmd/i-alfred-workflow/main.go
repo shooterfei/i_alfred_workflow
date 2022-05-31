@@ -26,6 +26,8 @@ func main() {
 		break
 	case "versions":
 		fmt.Println(search.Versions(*g, *a))
+	case "gitlab_search":
+		fmt.Println(search.GitlabSearch(param))
 	default:
 		fmt.Println("error")
 		break

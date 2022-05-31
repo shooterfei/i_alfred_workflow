@@ -25,26 +25,27 @@ add_subdirectory(c)
 add_custom_target(
   base
   COMMAND ./plist_handle.py WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/script
-  COMMENT "通用处理"
+  COMMENT "+++ 通用处理"
 )
 
 # 打包为单一文件
 add_custom_target(
   package
   COMMAND zip -r tools.alfredworkflow ./* WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/bin
-  COMMENT "打包成alfredworkflow 文件"
+  COMMENT "+++ 打包成alfredworkflow 文件"
+  DEPENDS base
 )
 
 # go 方式编译
 add_custom_target(
   go
-  DEPENDS base package
+  DEPENDS base
 )
 
 # javascript 方式实现
 add_custom_target(
   javascript
-  DEPENDS base package
+  DEPENDS base
 )
 
 # python 方式实现
@@ -68,5 +69,6 @@ add_custom_target(
 # 安装脚本
 add_custom_target(
   install
+  DEPENDS package
   COMMAND ./install.py WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/script
 )

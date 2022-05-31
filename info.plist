@@ -80,6 +80,29 @@
 				<false/>
 			</dict>
 		</array>
+		<key>41FB5BCB-B358-45C7-896C-39DD80C64838</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1595D4D9-0B07-4580-BB8B-81FB9B436D84</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>8FD379E1-D437-43C3-B9D2-BF58F4D1138E</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Kill all processes with this name.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>4E8E828D-FF2B-40AF-BF12-C3E15749738E</key>
 		<array>
 			<dict>
@@ -1413,6 +1436,131 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>kill -9 {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1595D4D9-0B07-4580-BB8B-81FB9B436D84</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>kill</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Finding processes...</string>
+				<key>script</key>
+				<string># Type a query to test with here.
+# !!!!! Comment this line out when pasting into alfred preferences.
+#theQuery = "chr"
+# Grab the query that the user typed (this is provided by Alfred).
+# !!!!! Uncomment this line when pasting into Alfred Preferences.
+theQuery = "{query}"
+# Search the query string for an argument filter (in the form of 'process:arg').
+argsQuery = nil
+if theQuery.include? ":"
+  theQuery, argsQuery = theQuery.split(":")
+end
+# Assemble an array of each matching process. It will contain the process's path and percent CPU usage.
+# The -A flag shows all processes. The -o pid, -o %cpu, and -o comm show only the process's PID, CPU usage and path, respectively.
+# Grep for processes whose name contains the query. The regex isolates the name by only searching characters after the last slash in the path.
+#  The -i flag ignores case.
+processes = `ps -A -o pid -o %cpu -o comm | grep -i [^/]*#{Regexp.quote(theQuery)}[^/]*$`.split("\n")
+# Start the XML string that will be sent to Alfred. This just uses strings to avoid dependencies.
+xmlString = "&lt;?xml version=\"1.0\"?&gt;\n&lt;items&gt;\n"
+processes.each do | process |
+	# Extract the PID, CPU usage, and path from the line (lines are in the form of `123 12.3 /path/to/process`).
+	processId, processCpu, processPath = process.match(/(\d+)\s+(\d+[\.|\,]\d+)\s+(.*)/).captures
+	# If an argument filter has been specified, get the arguments and search for the filter.
+	matchedArgs = []
+  if argsQuery != nil
+	  # Get the executable path and arguments for this process. Make an array with each argument that matches the search.
+    matchedArgs = `ps -p #{processId} -o command`.scan(/\s+-{1,2}[^\s]*#{Regexp.quote(argsQuery)}[^\s]*/i)
+    if matchedArgs.length &lt; 1
+	    next
+	  end
+  end
+	# Use the same expression as before to isolate the name of the process.
+	processName = processPath.match(/[^\/]*#{theQuery}[^\/]*$/i)
+	# Search for an application bundle in the path to the process.
+	iconValue = processPath.match(/.*?\.app\//)
+	# The icon type sent to Alfred is 'fileicon' (taken from a file). This assumes that a .app was found.
+	iconType = "fileicon"
+	# If no .app was found, use OS X's generic 'executable binary' icon.
+	# An empty icon type tells Alfred to load the icon from the file itself, rather than loading the file type's icon.
+	if !iconValue
+		iconValue = "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/ExecutableBinaryIcon.icns"
+		iconType = ""
+	end
+	# Assemble this item's XML string for Alfred. See http://www.alfredforum.com/topic/5-generating-feedback-in-workflows/
+	thisXmlString = "\t&lt;item uid=\"#{processName}\" arg=\"#{processId}\"&gt;
+		&lt;title&gt;#{processName}#{matchedArgs.join(" ")}&lt;/title&gt;
+		&lt;subtitle&gt;#{processCpu}% CPU @ #{processPath}&lt;/subtitle&gt;
+		&lt;icon type=\"#{iconType}\"&gt;#{iconValue}&lt;/icon&gt;
+	&lt;/item&gt;\n"
+	# Append this process's XML string to the global XML string.
+	xmlString += thisXmlString
+end
+# Finish off and echo the XML string to Alfred.
+xmlString += "&lt;/items&gt;"
+puts xmlString</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Start typing a process name...</string>
+				<key>title</key>
+				<string>Kill Process Named</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>41FB5BCB-B358-45C7-896C-39DD80C64838</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argument</key>
 				<string>'{query}', {allvars}</string>
 				<key>cleardebuggertext</key>
@@ -1467,6 +1615,29 @@ end run</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>286C699F-B81A-4E7B-8460-B69C347497D0</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>killall -- "$(ps -c -p {query} -o comm | tail -n 1)"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>8FD379E1-D437-43C3-B9D2-BF58F4D1138E</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -1673,6 +1844,13 @@ end run</string>
 			<key>ypos</key>
 			<integer>55</integer>
 		</dict>
+		<key>1595D4D9-0B07-4580-BB8B-81FB9B436D84</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1175</integer>
+			<key>ypos</key>
+			<integer>910</integer>
+		</dict>
 		<key>25FA3DF5-6EC3-494F-A5FB-9DC9286904C4</key>
 		<dict>
 			<key>xpos</key>
@@ -1714,6 +1892,13 @@ end run</string>
 			<integer>100</integer>
 			<key>ypos</key>
 			<integer>805</integer>
+		</dict>
+		<key>41FB5BCB-B358-45C7-896C-39DD80C64838</key>
+		<dict>
+			<key>xpos</key>
+			<integer>975</integer>
+			<key>ypos</key>
+			<integer>910</integer>
 		</dict>
 		<key>44E8B8A4-1B9E-46FC-8BAD-4C88F60C8CB5</key>
 		<dict>
@@ -1777,6 +1962,13 @@ end run</string>
 			<integer>500</integer>
 			<key>ypos</key>
 			<integer>235</integer>
+		</dict>
+		<key>8FD379E1-D437-43C3-B9D2-BF58F4D1138E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1175</integer>
+			<key>ypos</key>
+			<integer>1080</integer>
 		</dict>
 		<key>9D84E335-2FD7-48F6-9B7C-5A6BF35DB936</key>
 		<dict>
