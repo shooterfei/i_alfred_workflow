@@ -7,7 +7,6 @@ file(
   info.plist
   icon.png
   data
-  app.sh
   icons
   "List Filter Images"
   third_party DESTINATION
@@ -36,10 +35,10 @@ add_custom_target(
   DEPENDS base
 )
 
-# go 方式编译
+# 使用go的时候的目录整理
 add_custom_target(
   go
-  DEPENDS base
+  COMMAND mv bin/* ${PROJECT_BINARY_DIR}/bin/ WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/go
 )
 
 # javascript 方式实现
