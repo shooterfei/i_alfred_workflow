@@ -14,23 +14,23 @@ export LUA_PATH="./lualib/?.lua;./lualib/?/?.lua;$LUA_PATH"
 
 case "$1" in
   "mvn_search")
-    luajit src/mvn_search.lua "$2"
+    luajit main.lua -f "$1" "$2"
   ;;
   "mvn_package_version")
     read -r -a arr <<< "${2//:/ }"
-    ./i-alfred-workflow -f versions  -g "${arr[0]}" -a "${arr[1]}"
+    luajit main.lua -f versions  -g "${arr[0]}" -a "${arr[1]}"
   ;;
   "npm_search")
-    luajit src/npm_search.lua "$2"
+    luajit main.lua -f "$1" "$2"
   ;;
   "gitlab_search")
     ./i-alfred-workflow -f gitlab_search "$2"
   ;;
   "ssh")
-    luajit src/ssh.lua "${@:2}"
+    luajit main.lua -f "$1" "${@:2}"
   ;;
   "ssh_action")
-    luajit src/ssh_action.lua "$2"
+    luajit main.lua -f "$1" "$2"
   ;;
   *) echo default
   ;;

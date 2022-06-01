@@ -21,6 +21,22 @@ local fetch = function(url, body)
 	end
 end
 
+local fetch_html = function(url, body)
+	local response_body = {}
+	body["url"] = url
+	body["sink"] = ltn12.sink.table(response_body)
+	local res = { http.request(body) }
+	if res[2] == 200 then
+		if type(response_body) == "table" then
+			return table.concat(response_body)
+		end
+	else
+		return {
+			["code"] = false,
+		}
+	end
+end
+
 local output = function(data)
 	local items = {
 		["items"] = data,
@@ -54,4 +70,5 @@ M.fetch = fetch
 M.output = output
 M.json_file_load = json_file_load
 M.write_json_file = write_json_file
+M.fetch_html = fetch_html
 return M

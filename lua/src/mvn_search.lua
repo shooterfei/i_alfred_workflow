@@ -1,45 +1,30 @@
 #!/usr/bin/env lua
 
 local alfy = require("core.alfy")
-local url = string.format("https://mvn.coderead.cn/search/?keyword=%s", arg[1])
-local cjson = require("cjson")
 
-local res = alfy.fetch(url, {})
+local M = {}
 
-local data = {}
-local reg = "'text' >(.*)</span>.*description'>(.*)</span>.*description'>(.*)</span>"
-for _, value in ipairs(res["results"]) do
-  print(string.match(value["name"], reg))
+M.search = function(q)
+	local url = string.format("https://mvn.coderead.cn/search/?keyword=%s", q)
+	local res = alfy.fetch(url, {})
+	local data = {}
+	local reg1 = "'text' >(.*)</span>.*description'>(.*)</span>.*description'>(.*)</span>"
+	local reg2 = "<.?em>"
+	local reg3 = "%s+"
+	for _, value in ipairs(res["results"]) do
+		local title, time, description = string.match(value["name"], reg1)
+		title = string.gsub(string.gsub(title, reg2, ""), reg3, "")
+		time = string.gsub(time, reg3, "")
+		description = string.gsub(description, reg3, "")
 
-  -- local g, a, v = value["g"], value["a"], value["v"] == nil and value["latestVersion"] or value["v"]
-  -- local mvn = string.format(
-  -- 	"<dependency>\n  <groupid>%s</groupid>\n  <artifactid>%s</artifactid>\n  <version>%s</version>\n</dependency>",
-  -- 	g,
-  -- 	a,
-  -- 	v
-  -- )
-  -- local web_url = "https://search.maven.org/search?q=g:" .. g
-  -- local gradle = string.format("implementation('%s:%s:%s')", g, a, v)
-  -- local temp = {
-  -- 	["title"] = g .. ":" .. a .. ":" .. v,
-  -- 	["arg"] = web_url,
-  -- 	["subtitle"] = string.format(
-  -- 		"update at %s \t count: %s",
-  -- 		os.date("%Y-%m-%d %H:%M:%S", math.floor(value["timestamp"] / 1000)),
-  -- 		value["versionCount"]
-  -- 	),
-  -- 	["mods"] = {
-  -- 		["alt"] = {
-  -- 			["arg"] = gradle,
-  -- 			["subtitle"] = "copy gradle dependency to clipboard",
-  -- 		},
-  -- 		["cmd"] = {
-  -- 			["arg"] = mvn,
-  -- 			["subtitle"] = "copy maven dependency to clipboard",
-  -- 		},
-  -- 	},
-  -- }
-  -- table.insert(data, temp)
+		local temp = {
+			["title"] = description .. ":" .. title,
+			["arg"] = description .. ":" .. title,
+			["subtitle"] = "update by " .. time,
+		}
+		table.insert(data, temp)
+	end
+	return data
 end
 
-alfy.output(data)
+return M
