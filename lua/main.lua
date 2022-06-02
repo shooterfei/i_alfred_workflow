@@ -1,6 +1,6 @@
 #!/usr/bin/env luajit
 
-local cjson = require("cjson")
+local alfy = require "core.alfy"
 
 local opt = {}
 
@@ -18,6 +18,7 @@ end
 
 local q = arg[lens]
 
+---@type 根据字段执行方法
 local _switch = {
 	["mvn_search"] = function()
     return require("src.mvn_search").search(q)
@@ -29,6 +30,5 @@ local _switch = {
     return require("src.npm_search").search(q)
 	end,
 }
-
-print(cjson.encode(_switch[opt["-f"]]()))
+alfy.output(_switch[opt["-f"]]())
 

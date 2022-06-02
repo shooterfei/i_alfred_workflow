@@ -1,0 +1,5 @@
+[project-build]
+command=rm -rf build ; cmake . -B build ; cd build ;make lua ; make install
+cwd=$(VIM_ROOT)
+# output mode: run in a terminal
+output=terminal

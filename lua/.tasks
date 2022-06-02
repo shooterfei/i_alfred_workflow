@@ -1,0 +1,19 @@
+[file-build]
+# macros in the "$(...)" form will be substituted, 
+# shell command, use quotation for filenames containing spaces
+command=gcc -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"
+# working directory
+cwd=$(VIM_FILEDIR)
+
+[mvn_search]
+command=./app.sh mvn_search json
+cwd=$(VIM_PRONAME)
+# output mode: run in a terminal
+output=terminal
+
+
+[mvn_package_version]
+command=./app.sh mvn_package_version org.webjars.bower:vue
+cwd=$(VIM_PRONAME)
+# output mode: run in a terminal
+output=terminal

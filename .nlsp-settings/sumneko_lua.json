@@ -1,0 +1,8 @@
+{
+  "Lua.runtime.path": [
+    "?.lua",
+    "?/init.lua",
+    "~/.luarocks/share/lua/5.1/?.lua",
+    "~/.luarocks/share/lua/5.1/?/?.lua",
+  ]
+}

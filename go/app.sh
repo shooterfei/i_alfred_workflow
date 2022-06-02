@@ -16,7 +16,7 @@ case "$1" in
   ;;
   "gitlab_search")
     ./i-alfred-workflow -f gitlab_search "$2"
-  ;;
+    ;;
   "ssh")
     luajit ./src/ssh.lua "${@:2}"
   ;;
