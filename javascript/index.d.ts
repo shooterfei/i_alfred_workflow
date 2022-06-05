@@ -1,11 +1,6 @@
 export class Alfy {
     items: Array<Item>;
-    constructor() {
-        this.items = []
-    };
-    addItem(item: Item) {
-        this.items.push(item)
-    }
+    addItem(item: Item);
 }
 
 export interface Item {

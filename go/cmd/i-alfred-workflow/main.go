@@ -3,13 +3,15 @@ package main
 import (
 	"flag"
 	"fmt"
-	"i-alfred-workflow/internal/service/search"
 	"os"
+	"i-alfred-workflow/internal/service/search"
 )
 
-var f = flag.String("f", "", "string类型参数")
-var g = flag.String("g", "", "string类型参数")
-var a = flag.String("a", "", "string类型参数")
+var (
+	f = flag.String("f", "", "string类型参数")
+	g = flag.String("g", "", "string类型参数")
+	a = flag.String("a", "", "string类型参数")
+)
 
 func main() {
 	flag.Parse()

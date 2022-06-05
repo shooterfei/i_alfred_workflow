@@ -10,6 +10,6 @@ packages=( luasocket lua-cjson2 "xmlua LIBXML2_DIR=/usr/local/opt/libxml2" "luas
 
 for pac in "${packages[@]}"
 do
-  luarocks install --lua-version 5.1 $pac
+  luarocks install --lua-version 5.1  --local $pac
 done
 
