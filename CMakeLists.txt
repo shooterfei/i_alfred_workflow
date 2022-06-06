@@ -44,7 +44,7 @@ add_custom_target(
 # javascript 方式实现
 add_custom_target(
   javascript
-  DEPENDS base
+  COMMAND mv bin/* ${PROJECT_BINARY_DIR}/bin/ WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/javascript
 )
 
 # python 方式实现

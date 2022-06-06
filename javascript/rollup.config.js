@@ -2,6 +2,7 @@ import typescript from "@rollup/plugin-typescript"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
 import nodeResolveDefaultImport from "@rollup/plugin-node-resolve"
+import json from "@rollup/plugin-json"
 
 export default {
   input: './main.ts',//入口文件
@@ -12,12 +13,14 @@ export default {
     inlineDynamicImports: true,
     name: 'bundleName'//如果iife,umd需要指定一个全局变量
   },
+  external: [ 'canvas' ],
   plugins: [
     typescript({
       tsconfig: "./tsconfig.json"
     }),
-    commonjs({ extensions: [".js", ".ts", ".d.ts"] }),
+    commonjs({ extensions: [".js", ".ts", ".d.ts", ".node"] }),
     nodeResolve(),
+    json(),
     nodeResolveDefaultImport()
   ]
 }

@@ -35,7 +35,7 @@ const runTask = (query: string): void => {
                 alfy.addItem(temp)
             })
 
-            console.log(alfy)
+            console.log(JSON.stringify(alfy))
         })
 }
 

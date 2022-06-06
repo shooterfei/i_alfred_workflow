@@ -2,6 +2,7 @@
 command=rm -rf build ; cmake . -B build ; cd build ;make go ; make install
 command:go=rm -rf build ; cmake . -B build ; cd build ;make go ; make install
 command:lua=rm -rf build ; cmake . -B build ; cd build ;make lua ; make install
+command:javascript,typescript=rm -rf build ; cmake . -B build ; cd build ; make javascript ; make install
 cwd=$(VIM_ROOT)
 # output mode: run in a terminal
 output=terminal
@@ -20,7 +21,6 @@ cwd=$(VIM_ROOT)
 # output mode: run in a terminal
 output=terminal
 
-
 [npm_search]
 command:go=cd go ; go run cmd/i-alfred-workflow/main.go -f mvn_search vue
 command:lua=cd lua ; ./app.sh mvn_search vue
@@ -34,6 +34,7 @@ output=terminal
 [mvn_package_version]
 command:go=cd  go ; go run cmd/alfred-workflow/main.go -f mvn_package_version -g org.webjars.bower -a vue
 command:lua=cd lua ; ./app.sh mvn_package_version org.webjars.bower:vue
+command:typescript,javascript=cd javascript ; ./app.sh mvn_package_version org.webjars.bower:vue
 cwd=$(VIM_ROOT)
 # output mode: run in a terminal
 output=terminal
