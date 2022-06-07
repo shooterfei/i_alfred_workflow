@@ -13,7 +13,7 @@ export interface Item {
     icon?: Icon,
     valid?: boolean,
     match?: string,
-    mods?: Map<string, Mod>,
+    mods?: Mods,
     quicklookurl?: string,
     text?: Map<string, string>
 }
@@ -23,6 +23,9 @@ interface Icon {
     path: string
 }
 
+interface Mods {
+    [key: string]: Mod
+}
 interface Mod {
     arg: string,
     subtitle: string,

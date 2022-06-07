@@ -15,7 +15,6 @@ interface Mvn {
 const runTask = (query: string): void => {
     let url = `https://mvn.coderead.cn/search?keyword=${query}`
     const alfy = new Alfy()
-
     fetch(url)
         .then(res => res.json() as Promise<Mvn>)
         .then(res => {
