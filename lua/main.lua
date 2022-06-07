@@ -18,7 +18,7 @@ end
 
 local q = arg[lens]
 
----@type 根据字段执行方法
+--- 根据字段执行方法
 local _switch = {
 	["mvn_search"] = function()
     return require("src.mvn_search").search(q)
@@ -29,6 +29,8 @@ local _switch = {
 	["npm_search"] = function()
     return require("src.npm_search").search(q)
 	end,
+	["ssh"] = function()
+    return require("src.ssh").search(q)
+	end,
 }
 alfy.output(_switch[opt["-f"]]())
-

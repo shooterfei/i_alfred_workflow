@@ -1,5 +1,4 @@
 #!/usr/bin/env /usr/local/bin/pdm run python
-
 # -*- coding=utf-8 -*-
 
 import json
@@ -24,6 +23,7 @@ def data_handler(item):
             "alt": {
                 "arg": item["http_url_to_repo"],
                 "subtitle": "copy http to clipboard",
+
             },
         },
     }

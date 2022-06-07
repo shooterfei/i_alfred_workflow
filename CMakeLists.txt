@@ -68,6 +68,5 @@ add_custom_target(
 # 安装脚本
 add_custom_target(
   install
-  DEPENDS package
   COMMAND ./install.py WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/script
 )

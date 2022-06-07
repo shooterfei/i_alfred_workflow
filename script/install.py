@@ -41,8 +41,9 @@ if __name__ == "__main__":
         # zFile = zipfile.ZipFile("../bin/tools.alfredworkflow", "r")
         # for fileM in zFile.namelist():
         #     zFile.extract(fileM, target)
-        os.system(f"unzip ../bin/tools.alfredworkflow -d '{target}'")
+        os.system(f"rsync -avzP ../bin/ '{target}/'")
+        # os.system(f"unzip ../bin/tools.alfredworkflow -d '{target}'")
     else:
         print("install")
+        os.system("make package")
         os.system("open ../bin/tools.alfredworkflow")
-
