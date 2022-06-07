@@ -11,6 +11,7 @@ switch (flag) {
         break;
     case "npm_search":
         npm_search(q);
+        break;
     case "versions":
         const groupId = process.argv[5];
         const artifactId = process.argv[7];
