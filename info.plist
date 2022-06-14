@@ -2141,7 +2141,7 @@ puts xmlString</string>
 		<key>CACHE_TTL_SEC_REPO</key>
 		<string>86400</string>
 		<key>GITHUB_ACCESS_TOKEN</key>
-		<string>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</string>
+		<string>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</string>
 		<key>GITHUB_API_HOST</key>
 		<string>api.github.com</string>
 		<key>GITHUB_HOST</key>
