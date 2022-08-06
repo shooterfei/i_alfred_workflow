@@ -312,7 +312,27 @@
 				<key>destinationuid</key>
 				<string>53829D90-0A81-45E1-9DBE-3EF671DEF6B2</string>
 				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>123EC411-806D-4A41-ADA8-305E6D3C999F</string>
+				<key>modifiers</key>
 				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>2486E426-44D7-40BC-BBE3-9EFD0A4E2943</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
@@ -1213,6 +1233,25 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>53829D90-0A81-45E1-9DBE-3EF671DEF6B2</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
@@ -1247,25 +1286,6 @@ end run</string>
 			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
 			<string>F3A3D133-43DE-4E7A-B676-D9931F827546</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>53829D90-0A81-45E1-9DBE-3EF671DEF6B2</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -1351,6 +1371,25 @@ end run</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>123EC411-806D-4A41-ADA8-305E6D3C999F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>triggerid</key>
 				<string>ssh</string>
 			</dict>
@@ -1430,6 +1469,25 @@ end run</string>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>icons/567C11E9-3D72-4AB4-B24B-40D131483D71</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>2486E426-44D7-40BC-BBE3-9EFD0A4E2943</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -1844,12 +1902,26 @@ puts xmlString</string>
 			<key>ypos</key>
 			<integer>55</integer>
 		</dict>
+		<key>123EC411-806D-4A41-ADA8-305E6D3C999F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1405</integer>
+			<key>ypos</key>
+			<integer>770</integer>
+		</dict>
 		<key>1595D4D9-0B07-4580-BB8B-81FB9B436D84</key>
 		<dict>
 			<key>xpos</key>
 			<integer>1175</integer>
 			<key>ypos</key>
 			<integer>910</integer>
+		</dict>
+		<key>2486E426-44D7-40BC-BBE3-9EFD0A4E2943</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1410</integer>
+			<key>ypos</key>
+			<integer>885</integer>
 		</dict>
 		<key>25FA3DF5-6EC3-494F-A5FB-9DC9286904C4</key>
 		<dict>
@@ -1924,9 +1996,9 @@ puts xmlString</string>
 		<key>53829D90-0A81-45E1-9DBE-3EF671DEF6B2</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1370</integer>
+			<integer>1405</integer>
 			<key>ypos</key>
-			<integer>725</integer>
+			<integer>655</integer>
 		</dict>
 		<key>5FDF3556-1AF9-45C7-BA36-F378964A7959</key>
 		<dict>
@@ -2141,7 +2213,7 @@ puts xmlString</string>
 		<key>CACHE_TTL_SEC_REPO</key>
 		<string>86400</string>
 		<key>GITHUB_ACCESS_TOKEN</key>
-		<string>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</string>
+		<string>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</string>
 		<key>GITHUB_API_HOST</key>
 		<string>api.github.com</string>
 		<key>GITHUB_HOST</key>
