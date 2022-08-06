@@ -28,7 +28,7 @@ func Versions(groupId string, artifactId string) string {
 			Arg:      fmt.Sprint(i),
 			Mods: map[string]*conf.Alfy_Items_Mod{
 				"ctrl": {
-					Arg: fmt.Sprintf("<dependency>\n\t<groupid>%s</groupid>\n\t<artifactid>%s</artivactid>\n\t<version>%s</version>\n</dependency>",
+					Arg: fmt.Sprintf("<dependency>\n\t<groupid>%s</groupid>\n\t<artifactId>%s</artifactId>\n\t<version>%s</version>\n</dependency>",
 						groupId,
 						artifactId,
 						version),
