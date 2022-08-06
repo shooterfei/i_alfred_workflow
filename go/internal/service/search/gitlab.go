@@ -17,22 +17,23 @@ func GitlabSearch(q string) string {
 		os.Getenv("PROTOCOL")
 
 	if gitlab_host == "" {
-		gitlab_host = "192.168.2.30"
+		gitlab_host = "gitlab.shooterfei.com"
 	}
 
 	if gitlab_port == "" {
-		gitlab_port = "9122"
+		gitlab_port = "443"
 	}
 
 	if token == "" {
-		token = "sMTC-iDELEBY9iCm7qKb"
+		token = "oUAZ5rsNx5PM_MvChJ2L"
 	}
 
 	if protocol == "" {
-		protocol = "http"
+		protocol = "https"
 	}
 
-	url := fmt.Sprintf("%s://%s:%s/api/v4/projects?search=%s", protocol, gitlab_host, gitlab_port, q)
+	url := fmt.Sprintf("%s://%s:%s/api/v4/projects.json?search=%s", protocol, gitlab_host, gitlab_port, q)
+
 	req, _ := http.NewRequest("GET", url, nil)
 	req.Header.Set("PRIVATE-TOKEN", token)
 
@@ -41,6 +42,7 @@ func GitlabSearch(q string) string {
 		fmt.Println("http error")
 	}
 	defer resp.Body.Close()
+
 
 	body, readErr := ioutil.ReadAll(resp.Body)
 	if readErr != nil {

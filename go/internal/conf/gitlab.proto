@@ -100,7 +100,7 @@ message GitLab {
   message Container_expiration_policy {
     string cadence = 1;
     bool enabled = 2;
-    string keep_n = 3;
+    int32 keep_n = 3;
     string older_than = 4;
     string name_regex = 5;
     string next_run_at = 6;
