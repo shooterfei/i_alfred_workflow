@@ -2213,7 +2213,7 @@ puts xmlString</string>
 		<key>CACHE_TTL_SEC_REPO</key>
 		<string>86400</string>
 		<key>GITHUB_ACCESS_TOKEN</key>
-		<string>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</string>
+		<string>shooterfei</string>
 		<key>GITHUB_API_HOST</key>
 		<string>api.github.com</string>
 		<key>GITHUB_HOST</key>
